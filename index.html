@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ragulkrishna | Network Engineer</title>
+
+<style>
+:root{
+    --bg:#0b1023;
+    --card:#111735;
+    --accent:#ffcc00;
+    --text:#ffffff;
+    --muted:#c7c9ff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+/* HERO ENTRY ANIMATION */
+.hero{
+    animation: heroFade 1.2s ease forwards;
+    opacity:0;
+}
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* TEXT STAGGER ANIMATION */
+.hero-content h1{
+    animation: slideUp 0.8s ease forwards;
+    animation-delay:0.3s;
+    opacity:0;
+}
+
+.hero-content h2{
+    animation: slideUp 0.8s ease forwards;
+    animation-delay:0.5s;
+    opacity:0;
+}
+
+.hero-content p{
+    animation: slideUp 0.8s ease forwards;
+    animation-delay:0.7s;
+    opacity:0;
+}
+
+.hero-content .btn{
+    animation: slideUp 0.8s ease forwards;
+    animation-delay:0.9s;
+    opacity:0;
+}
+
+/* SLIDE UP KEYFRAME */
+@keyframes slideUp{
+    from{
+        transform:translateY(25px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* BUTTON HOVER MICRO-INTERACTION */
+.btn{
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 18px rgba(255,204,0,0.6);
+}
+
+/* HEADER ANIMATION */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:#0b1023;
+
+    animation: slideDown 1s ease forwards;
+}
+
+@keyframes slideDown{
+    from{
+        transform: translateY(-50px);
+        opacity:0;
+    }
+    to{
+        transform: translateY(0);
+        opacity:1;
+    }
+}
+
+/* NAV LINK HOVER ANIMATION */
+nav a{
+    position:relative;
+    color:#fff;
+    text-decoration:none;
+    margin-left:30px;
+    font-weight:500;
+}
+
+/* underline animation */
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#ffcc00;
+    left:0;
+    bottom:-6px;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+
+/* HERO */
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 70px;
+}
+
+.hero-content{
+    max-width:620px;
+}
+
+.hero-content h1{
+    font-size:44px;
+}
+
+.hero-content h2{
+    font-size:22px;
+    color:var(--accent);
+    margin:10px 0 20px;
+}
+
+.hero-content p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.btn{
+    background:var(--accent);
+    color:#000;
+    padding:12px 30px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.photo-wrapper{
+    background:#0b1023;
+    padding:10px;
+    border-radius:50%;
+    opacity:0;
+
+    /* merged animations */
+    animation: photoPop 1.2s ease forwards, float 4s ease-in-out infinite;
+}
+
+.photo-wrapper img{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover effect */
+.photo-wrapper:hover img{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(255,204,0,0.6);
+}
+
+/* Entry animation */
+@keyframes photoPop{
+    from{
+        transform:scale(0.85);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* Floating animation */
+@keyframes float{
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+    100%{ transform:translateY(0); }
+}
+
+/* SECTION */
+section{
+    padding:70px;
+}
+
+.section-title{
+    font-size:30px;
+    text-align:center;
+    margin-bottom:40px;
+}
+
+/* CARD */
+.card{
+    background:var(--card);
+    border:2px solid var(--accent);
+    border-radius:25px;
+    padding:45px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.about-content{
+    text-align:center;
+    opacity:0;
+    transform:translateY(30px);
+    animation: aboutFadeUp 1s ease forwards;
+}
+
+@keyframes aboutFadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.about-content p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:35px;
+
+    opacity:0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay:0.2s;
+}
+@keyframes fadeIn{
+    to{ opacity:1; }
+}
+.ccna-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    border:2px solid var(--accent);
+    border-radius:20px;
+    padding:20px 30px;
+    width:fit-content;
+    margin:0 auto 25px;
+
+    opacity:0;
+    transform:scale(0.9);
+    animation: ccnaPop 0.8s ease forwards;
+    animation-delay:0.4s;
+}
+
+@keyframes ccnaPop{
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+.about-content{
+    text-align:center;
+    opacity:0;
+    transform:translateY(30px);
+    animation: aboutFadeUp 1s ease forwards;
+}
+
+@keyframes aboutFadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.about-content p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:35px;
+
+    opacity:0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay:0.2s;
+}
+@keyframes fadeIn{
+    to{ opacity:1; }
+}
+.ccna-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    border:2px solid var(--accent);
+    border-radius:20px;
+    padding:20px 30px;
+    width:fit-content;
+    margin:0 auto 25px;
+
+    opacity:0;
+    transform:scale(0.9);
+    animation: ccnaPop 0.8s ease forwards;
+    animation-delay:0.4s;
+}
+
+@keyframes ccnaPop{
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+.ccna-box:hover{
+    box-shadow:0 0 20px rgba(255,204,0,0.5);
+    transition:0.3s ease;
+}
+.about-content .download-btn{
+    opacity:0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay:0.6s;
+}
+
+.about-content .download-btn:hover{
+    box-shadow:0 0 18px rgba(255,204,0,0.7);
+    transform:translateY(-2px);
+    transition:0.3s ease;
+}
+
+
+/* CCNA BOX */
+.ccna-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    border:2px solid var(--accent);
+    border-radius:20px;
+    padding:20px 30px;
+    width:fit-content;
+    margin:0 auto 25px;
+
+    opacity:0;
+    animation: scaleIn 1.2s ease forwards;
+    animation-delay:0.3s;
+}
+
+.ccna-box img{
+    width:60px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#000;
+    padding:10px 22px;
+    border-radius:20px;
+    font-weight:bold;
+    text-decoration:none;
+
+    opacity:0;
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay:0.6s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button hover */
+.download-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,204,0,0.5);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp{
+    from{
+        transform: translateY(30px);
+        opacity:0;
+    }
+    to{
+        transform: translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes scaleIn{
+    from{
+        transform: scale(0.85);
+        opacity:0;
+    }
+    to{
+        transform: scale(1);
+        opacity:1;
+    }
+}
+
+/* SKILLS */
+.skills-wrapper{
+    border:2px solid var(--accent);
+    border-radius:25px;
+    padding:50px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-bottom:40px;
+}
+
+.skills h4{
+    color:var(--accent);
+    margin-bottom:10px;
+}
+
+.skills ul{
+    color:var(--muted);
+    line-height:1.7;
+    margin-left:20px;
+}
+
+.tools{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.tool{
+    border:2px solid var(--accent);
+    border-radius:20px;
+    width:180px;
+    height:140px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.tool img{
+    width:55px;
+    margin-bottom:10px;
+}
+
+/* PROJECT */
+.project-card h4{
+    margin-top:22px;
+}
+
+.project-card ul{
+    margin-left:20px;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* CERTIFICATIONS */
+.cert-list{
+    text-align:center;
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.cert-icons{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.cert-icons .tool{
+    width:200px;
+}
+.edu-card{
+    background:linear-gradient(145deg, #111735, #0e1433);
+    border:2px solid #ffcc00;
+    border-radius:25px;
+    padding:45px;
+    max-width:1100px;
+    margin:0 auto;
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+}
+.edu-item{
+    display:flex;
+    align-items:flex-start;
+    gap:30px;
+    margin-bottom:35px;
+}
+
+/* Center badge vertically with text */
+.edu-badge{
+    background:#ffcc00;
+    color:#0b1023;
+    font-weight:bold;
+    padding:10px 20px;
+    border-radius:20px;
+    min-width:110px;
+    text-align:center;
+    line-height:1.2;
+}
+.edu-text{
+    color:var(--muted);
+    line-height:1.7;
+    text-align:left;
+}
+.edu-item:hover{
+    transform:translateX(6px);
+    transition:0.3s ease;
+}
+/* ===== CONTACT (PDF STYLE) ===== */
+.contact-card{
+    background:linear-gradient(145deg, #111735, #0e1433);
+    border:2px solid #ffcc00;
+    border-radius:25px;
+    padding:45px;
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+}
+
+.contact-list{
+    display:inline-block;
+    text-align:left;
+    margin-bottom:30px;
+}
+
+.contact-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:14px;
+    color:var(--muted);
+}
+
+.contact-row img{
+    width:20px;
+}
+
+.social a{
+    opacity:0;
+    transform:translateY(10px);
+    animation:socialFade 0.5s ease forwards;
+}
+
+/* stagger effect */
+.social a:nth-child(1){ animation-delay:0.2s; }
+.social a:nth-child(2){ animation-delay:0.35s; }
+.social a:nth-child(3){ animation-delay:0.5s; }
+
+@keyframes socialFade{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.social img{
+    transition:transform 0.2s ease;
+}
+
+.social a:hover img{
+    transform:scale(1.08);
+}
+
+
+/* FOOTER */
+footer{
+    background:#0a0f24;
+    text-align:center;
+    padding:25px;
+    color:#9aa0ff;
+    border-top:1px solid rgba(255,204,0,0.2);
+}
+.edu-item:hover{
+    transform:translateX(6px);
+    transition:0.3s ease;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero{flex-direction:column;text-align:center;}
+    .photo-wrapper{margin-top:40px;}
+    .skills{grid-template-columns:1fr;}
+    .tools,.cert-icons{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h3>Portfolio</h3>
+    <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#Education">Education</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>👋 Hi I'm Ragulkrishna</h1>
+        <h2>Network Engineer</h2>
+        <p>
+            Entry level Network Engineer with a strong foundation in LAN/WAN technologies,
+            IP addressing, subnetting, routing, and switching.
+        </p>
+
+        <!-- ✅ GOOGLE DRIVE RESUME LINK -->
+        <a href="https://drive.google.com/file/d/1gfSXA0tccYgVdRCY8tYNBODtB7yk3L-f/view?usp=sharing"
+           target="_blank"
+           class="btn">
+           Download Resume ⬇
+        </a>
+    </div>
+
+    <div class="photo-wrapper">
+        <img src="image\SS.png">
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h3 class="section-title">About <span style="color:#ffcc00">Me</span></h3>
+    <div class="card about-content">
+        <p>
+            Entry level Network Engineer with a strong foundation in LAN/WAN technologies,
+            IP addressing, subnetting, routing, and switching. CCNA-trained with hands-on
+            practice in configuring routers, switches, VLANs, and basic network services
+            such as DNS and DHCP using Cisco Packet Tracer. Familiar with identifying and
+            troubleshooting basic connectivity issues and eager to learn and grow in
+            real-world networking environments.
+        </p>
+
+        <div class="ccna-box">
+            <img src="public\images\profile.png">
+            <b>CISCO CERTIFIED<br>NETWORK ASSOCIATE</b>
+        </div>
+
+        <div style="text-align:center; margin-top:25px;">
+    <a href="https://drive.google.com/file/d/1gfSXA0tccYgVdRCY8tYNBODtB7yk3L-f/view?usp=sharing" class="download-btn">
+        Download Resume ⬇
+    </a>
+</div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<h3 class="section-title">Technical <span style="color:#ffcc00">Skills</span></h3>
+<div class="card skills-wrapper">
+
+<div class="skills">
+<div>
+<h4>Networking</h4>
+<ul>
+<li>OSI & TCP/IP models</li>
+<li>IPv4 addressing & subnetting</li>
+<li>Basic IPv6</li>
+<li>LAN / WAN concepts</li>
+</ul>
+</div>
+
+<div>
+<h4>Routing & Switching</h4>
+<ul>
+<li>Router & Switch configuration (Cisco CLI)</li>
+<li>VLANs, Access & Trunk ports</li>
+<li>Inter-VLAN communication</li>
+</ul>
+</div>
+
+<div>
+<h4>Network Services</h4>
+<ul>
+<li>DHCP & DNS</li>
+<li>NAT & Default Gateway</li>
+</ul>
+</div>
+
+<div>
+<h4>Tools & Labs</h4>
+<ul>
+<li>Cisco Packet Tracer</li>
+<li>Wireshark</li>
+<li>PNET Lab</li>
+</ul>
+</div>
+</div>
+
+<div class="tools">
+<div class="tool"><img src="image\icon-block-doaqi.png">PACKET TRACER</div>
+<div class="tool"><img src="image\logo.png">PNET LAB</div>
+<div class="tool"><img src="image\Wireshark_icon_new.png">WIRESHARK</div>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECT -->
+<section id="projects">
+    <h3 class="section-title">Projects</h3>
+
+    <div class="card project-card">
+
+        <h4>Project Title</h4>
+        <p><b>Simple Office Networking Project</b></p>
+
+        <h4>Tool Used</h4>
+        <p>Cisco Packet Tracer</p>
+
+        <h4>Project Overview</h4>
+        <p>
+            Designed and implemented a small office network to simulate a real-world
+            enterprise environment. The project focuses on building a reliable LAN
+            that connects multiple departments using switches and a router.
+        </p>
+
+        <h4>What I Did</h4>
+        <ul>
+            <li>Designed a multi-department LAN topology</li>
+            <li>Connected PCs using switches and a router</li>
+            <li>Configured basic routing and switching</li>
+            <li>Assigned IP addresses and default gateways</li>
+            <li>Verified connectivity using ping and traceroute</li>
+            <li>Identified and resolved basic network configuration issues</li>
+        </ul>
+
+      <!-- ✅ DOWNLOAD BUTTON CENTERED -->
+<div style="text-align:center; margin-top:25px;">
+    <a href="https://drive.google.com/file/d/1SpOrTqMdtD8RjttbRWQCRqmGWMUuMS94/view?usp=sharing" class="download-btn">
+        Download Project ⬇
+    </a>
+</div>
+
+    </div>
+</section>
+
+
+<!-- CERTIFICATIONS -->
+<section>
+<h3 class="section-title">Industry <span style="color:#ffcc00">Certifications</span></h3>
+<div class="card">
+<div class="cert-list">
+CCNA v7 – Introduction to Networks | Cisco<br>
+CCNA v7 – Switching, Routing & Wireless Essentials | Cisco<br>
+Microsoft Certified – Azure Data Fundamentals<br>
+CNA – Networking Fundamental to expects | Suren Networks
+</div>
+
+<div class="cert-icons">
+<div class="tool"><img src="image\cisco-ccna-png-logo-16.png">CCNA</div>
+<div class="tool"><img src="image\Azure-Logo-PNG-Photo.png">AZURE</div>
+<div class="tool"><img src="image\SN-03.png">NETWORKING</div>
+</div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+    <h3 class="section-title">Education</h3>
+
+    <div class="edu-card">
+
+        <div class="edu-item">
+            <span class="edu-badge">SCHOOL</span>
+            <div class="edu-text">
+                <b>Higher Secondary (Matriculation)</b><br>
+                Sri Annai Raani Convent Higher Secondary School<br>
+                2020 – 2022
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <span class="edu-badge">COLLEGE</span>
+            <div class="edu-text">
+                <b>Bachelor of Technology – Computer Science and Engineering</b><br>
+                Karunya University (Pursuing)<br>
+                2022 – 2026
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+    <h3 class="section-title">Contact <span style="color:#ffcc00">Me Here</span></h3>
+
+    <div class="contact-card">
+
+        <div class="contact-list">
+            <div class="contact-row">
+                <img src="C:\Users\ragul\Downloads\Modern-Portfolio-Website-Template-main\Modern-Portfolio-Website-Template-main\LOCATION-03.png">
+                <b>Location:</b> Pondicherry, India
+            </div>
+
+            <div class="contact-row">
+                <img src="image\EMAIL-03.png">
+                <b>Email:</b> ragulkrishna649@gmail.com
+            </div>
+
+            <div class="contact-row">
+                <img src="image\PHONE-03.png">
+                <b>Contact Number:</b> 8870321120
+            </div>
+
+            <div class="contact-row">
+                <img src="image\network engineer portfolio2-03.png">
+                <b>Languages:</b> Tamil, English
+            </div>
+        </div>
+
+        <!-- ✅ CENTERED DOWNLOAD BUTTON -->
+        <div style="text-align:center; margin:30px 0;">
+            <a href="https://drive.google.com/file/d/1gfSXA0tccYgVdRCY8tYNBODtB7yk3L-f/view?usp=sharing"
+               target="_blank"
+               class="download-btn">
+                Download Resume ⬇
+            </a>
+        </div>
+
+        <!-- SOCIAL ICONS -->
+        <div class="social">
+            <a href="https://www.linkedin.com/in/ragulkrishna/" target="_blank" rel="noopener">
+                <img src="image\LINKEDIN-03.png" alt="LinkedIn">
+            </a>
+
+            <a href="https://www.youtube.com/@YOUR_YOUTUBE_CHANNEL" target="_blank" rel="noopener">
+                <img src="image\YOUTUBESS-03.png" alt="YouTube">
+            </a>
+
+            <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">
+                <img src="C:\Users\ragul\Downloads\final\public\images\GITHUB.png" alt="GitHub">
+            </a>
+        </div>
+
+        <p style="margin-top:18px;font-size:12px;color:#9aa0ff; text-align:center;">
+            Keep in touch with me........
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Ragulkrishna | Network Engineer | CCNA Trained Student
+</footer>
